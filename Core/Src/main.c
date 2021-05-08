@@ -37,6 +37,7 @@
 #include "..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_lcd.h"
 #include "..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_sdram.h"
 #include "..\..\Drivers\BSP\Components\ili9341\ili9341.h"
+#include "Figures.h"
 
 /* USER CODE END Includes */
 
@@ -118,8 +119,14 @@ int main(void)
   BSP_LCD_DisplayOn();                                                //Wlaczenie podswietlania
   BSP_LCD_Clear(LCD_COLOR_RED);                                     //Kolor Tla
 
-  BSP_LCD_DrawHLine(10, 40, 100);
-  BSP_LCD_DrawCircle(50, 100, 40);
+  //BSP_LCD_DrawHLine(10, 40, 100);
+  //BSP_LCD_DrawCircle(50, 100, 40);
+
+  //wykorzystanie naszej biblioteki
+  drawingHLine(200, 100, 200);
+  drawingVLine(200, 100, 200);
+
+
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
