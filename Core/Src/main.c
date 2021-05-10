@@ -119,7 +119,8 @@ int main(void)
   BSP_LCD_DisplayOn();                                                //Wlaczenie podswietlania
   BSP_LCD_Clear(LCD_COLOR_WHITE);                                     //Kolor Tla
 
-  drawingLine(50, 0, 240, 320);
+  drawingLine(50, 100, 240, 320);
+  drawingLine(1, 0, 241, 321);
   //test
   //wykorzystanie naszej biblioteki
   //drawingHLine(200, 100, 200);
