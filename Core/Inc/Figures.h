@@ -6,7 +6,7 @@
 #include "..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_sdram.h"
 #include "..\..\Drivers\BSP\Components\ili9341\ili9341.h"
 
-//wymiary ekranu (do sprawdzenia)
+//wymiary ekranu
 static int sizeX = 240;
 static int sizeY = 320;
 

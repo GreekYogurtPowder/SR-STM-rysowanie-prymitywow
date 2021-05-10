@@ -117,14 +117,16 @@ int main(void)
   BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER);   //Wlaczenie drugiej warstwy
   BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER);                          //Wybranie warstwy aktywnej
   BSP_LCD_DisplayOn();                                                //Wlaczenie podswietlania
-  BSP_LCD_Clear(LCD_COLOR_RED);                                     //Kolor Tla
+  BSP_LCD_Clear(LCD_COLOR_WHITE);                                     //Kolor Tla
 
   //wykorzystanie naszej biblioteki
   //drawingHLine(200, 100, 200);
   //drawingVLine(200, 200, 200);
-  drawingLine(1, 1, 240, 320);
-  //drawingRectangle(100, 100, 50, 100);
-  //drawingTriangle(50, 50, 150);
+  drawingLine(0, 0, 240, 320);
+  drawingLine(1, 0, 241, 321);
+  drawingLine(2, 0, 242, 322);
+  drawingLine(3, 0, 243, 323);
+  drawingLine(4, 0, 244, 324);
 
 
   /* USER CODE END 2 */
