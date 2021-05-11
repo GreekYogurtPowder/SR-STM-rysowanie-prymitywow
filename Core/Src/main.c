@@ -117,15 +117,27 @@ int main(void)
   BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER);   //Wlaczenie drugiej warstwy
   BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER);                          //Wybranie warstwy aktywnej
   BSP_LCD_DisplayOn();                                                //Wlaczenie podswietlania
-  BSP_LCD_Clear(LCD_COLOR_WHITE);                                     //Kolor Tla
+  BSP_LCD_Clear(LCD_COLOR_BLUE);                                     //Kolor Tla
+
+
+
+//  for (int i=1;i<6;i++){
+//	  DrawLetterA(5+i, 50+i);
+//	  DrawLetterW(45+i, 50+i);
+//	  DrawLetterN(90+i, 50+i);
+//	  DrawLetterL(130+i, 50+i);
+//	  DrawLetterC(190+i, 50+i);
+//	  DrawLetterD(210+i, 50+i);
+//  }
+
 
   //komentarz222
   //drawingVLine(200, 200, 200);
-  drawingLine(0, 0, 240, 320);
-  drawingLine(1, 0, 241, 321);
-  drawingLine(2, 0, 242, 322);
-  drawingLine(3, 0, 243, 323);
-  drawingLine(4, 0, 244, 324);
+  //drawingLine(0, 0, 240, 320);
+  //drawingLine(1, 0, 241, 321);
+  //drawingLine(2, 0, 242, 322);
+  //drawingLine(3, 0, 243, 323);
+  //drawingLine(4, 0, 244, 324);
 
 
   /* USER CODE END 2 */

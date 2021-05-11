@@ -1,0 +1,13 @@
+Figures.c:4:6:drawingHLine	24	static
+Figures.c:22:6:drawingVLine	24	static
+Figures.c:40:6:drawingLine	40	static
+Figures.c:58:6:drawingRectangle	32	static
+Figures.c:80:6:drawingTriangle	32	static
+Figures.c:119:6:DrawCircle	24	static
+Figures.c:155:6:DrawLine	40	static
+Figures.c:208:6:DrawLetterD	24	static
+Figures.c:241:6:DrawLetterC	24	static
+Figures.c:273:6:DrawLetterA	16	static
+Figures.c:286:6:DrawLetterW	16	static
+Figures.c:300:6:DrawLetterN	16	static
+Figures.c:313:6:DrawLetterL	16	static
