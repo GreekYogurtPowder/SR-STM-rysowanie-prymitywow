@@ -154,6 +154,8 @@ void drawingCircle (uint16_t x_pos, uint16_t y_pos, uint16_t rad, uint32_t color
  * @param x2 X position of the beginning point
  * @param y2 Y position of the beginning point
  * @param color	the color of the line
+ *
+ * source: http://mst.mimuw.edu.pl/lecture.php?lecture=gk1&part=Ch2
  */
 
 void DrawLine ( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint32_t color)
