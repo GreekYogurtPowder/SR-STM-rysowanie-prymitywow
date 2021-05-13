@@ -121,13 +121,17 @@ int main(void)
 
 
 
+  while(1){
+	  AnimCircle(120, 160, 40, 80, 500);
+  }
+
 //  for (int i=1;i<6;i++){
-//	  DrawLetterA(5+i, 50+i);
-//	  DrawLetterW(45+i, 50+i);
-//	  DrawLetterN(90+i, 50+i);
-//	  DrawLetterL(130+i, 50+i);
-//	  DrawLetterC(190+i, 50+i);
-//	  DrawLetterD(210+i, 50+i);
+//	  DrawCircle(5+i, 50+i, 30);
+//	  DrawCircle(45+i, 50+i, 30);
+//	  DrawCircle(90+i, 50+i, 30);
+//	  DrawCircle(130+i, 50+i, 30);
+//	  DrawCircle(190+i, 50+i, 30);
+//	  DrawCircle(210+i, 50+i, 30);
 //  }
 
 
