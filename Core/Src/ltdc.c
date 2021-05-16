@@ -37,14 +37,14 @@ void MX_LTDC_Init(void)
   hltdc.Init.VSPolarity = LTDC_VSPOLARITY_AL;
   hltdc.Init.DEPolarity = LTDC_DEPOLARITY_AL;
   hltdc.Init.PCPolarity = LTDC_PCPOLARITY_IPC;
-  hltdc.Init.HorizontalSync = 9;
-  hltdc.Init.VerticalSync = 1;
-  hltdc.Init.AccumulatedHBP = 29;
-  hltdc.Init.AccumulatedVBP = 3;
-  hltdc.Init.AccumulatedActiveW = 269;
-  hltdc.Init.AccumulatedActiveH = 323;
-  hltdc.Init.TotalWidth = 279;
-  hltdc.Init.TotalHeigh = 327;
+  hltdc.Init.HorizontalSync = 7;
+  hltdc.Init.VerticalSync = 3;
+  hltdc.Init.AccumulatedHBP = 14;
+  hltdc.Init.AccumulatedVBP = 5;
+  hltdc.Init.AccumulatedActiveW = 654;
+  hltdc.Init.AccumulatedActiveH = 485;
+  hltdc.Init.TotalWidth = 660;
+  hltdc.Init.TotalHeigh = 487;
   hltdc.Init.Backcolor.Blue = 0;
   hltdc.Init.Backcolor.Green = 0;
   hltdc.Init.Backcolor.Red = 0;
@@ -53,17 +53,17 @@ void MX_LTDC_Init(void)
     Error_Handler();
   }
   pLayerCfg.WindowX0 = 0;
-  pLayerCfg.WindowX1 = 240;
+  pLayerCfg.WindowX1 = 0;
   pLayerCfg.WindowY0 = 0;
-  pLayerCfg.WindowY1 = 320;
-  pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_RGB565;
-  pLayerCfg.Alpha = 255;
+  pLayerCfg.WindowY1 = 0;
+  pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_ARGB8888;
+  pLayerCfg.Alpha = 0;
   pLayerCfg.Alpha0 = 0;
-  pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_PAxCA;
-  pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_PAxCA;
-  pLayerCfg.FBStartAdress = 0xD0000000;
-  pLayerCfg.ImageWidth = 240;
-  pLayerCfg.ImageHeight = 320;
+  pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
+  pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_CA;
+  pLayerCfg.FBStartAdress = 0;
+  pLayerCfg.ImageWidth = 0;
+  pLayerCfg.ImageHeight = 0;
   pLayerCfg.Backcolor.Blue = 0;
   pLayerCfg.Backcolor.Green = 0;
   pLayerCfg.Backcolor.Red = 0;
@@ -75,6 +75,7 @@ void MX_LTDC_Init(void)
   pLayerCfg1.WindowX1 = 0;
   pLayerCfg1.WindowY0 = 0;
   pLayerCfg1.WindowY1 = 0;
+  pLayerCfg1.PixelFormat = LTDC_PIXEL_FORMAT_ARGB8888;
   pLayerCfg1.Alpha = 0;
   pLayerCfg1.Alpha0 = 0;
   pLayerCfg1.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
@@ -191,9 +192,6 @@ void HAL_LTDC_MspInit(LTDC_HandleTypeDef* ltdcHandle)
     GPIO_InitStruct.Alternate = GPIO_AF9_LTDC;
     HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
-    /* LTDC interrupt Init */
-    HAL_NVIC_SetPriority(LTDC_IRQn, 5, 0);
-    HAL_NVIC_EnableIRQ(LTDC_IRQn);
   /* USER CODE BEGIN LTDC_MspInit 1 */
 
   /* USER CODE END LTDC_MspInit 1 */
@@ -250,8 +248,6 @@ void HAL_LTDC_MspDeInit(LTDC_HandleTypeDef* ltdcHandle)
 
     HAL_GPIO_DeInit(GPIOD, G7_Pin|B2_Pin);
 
-    /* LTDC interrupt Deinit */
-    HAL_NVIC_DisableIRQ(LTDC_IRQn);
   /* USER CODE BEGIN LTDC_MspDeInit 1 */
 
   /* USER CODE END LTDC_MspDeInit 1 */

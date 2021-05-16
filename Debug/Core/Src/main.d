@@ -55,10 +55,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- ../Core/Inc/crc.h ../Core/Inc/main.h ../Core/Inc/dma2d.h \
- ../Core/Inc/i2c.h ../Core/Inc/ltdc.h ../Core/Inc/spi.h ../Core/Inc/tim.h \
- ../Core/Inc/usart.h ../USB_HOST/App/usb_host.h ../Core/Inc/gpio.h \
- ../Core/Inc/fmc.h \
+ ../Core/Inc/crc.h ../Core/Inc/main.h ../Core/Inc/dma.h \
+ ../Core/Inc/dma2d.h ../Core/Inc/i2c.h ../Core/Inc/ltdc.h \
+ ../Core/Inc/spi.h ../Core/Inc/tim.h ../Core/Inc/usart.h \
+ ../USB_HOST/App/usb_host.h ../Core/Inc/gpio.h ../Core/Inc/fmc.h \
  ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery.h \
  ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_lcd.h \
  ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery.h \
@@ -191,6 +191,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/crc.h:
 
 ../Core/Inc/main.h:
+
+../Core/Inc/dma.h:
 
 ../Core/Inc/dma2d.h:
 

@@ -21,6 +21,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "crc.h"
+#include "dma.h"
 #include "dma2d.h"
 #include "i2c.h"
 #include "ltdc.h"
@@ -38,6 +39,8 @@
 #include "..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_sdram.h"
 #include "..\..\Drivers\BSP\Components\ili9341\ili9341.h"
 #include "Figures.h"
+#include "stdio.h"
+#include "stdlib.h"
 
 /* USER CODE END Includes */
 
@@ -59,6 +62,11 @@
 
 /* USER CODE BEGIN PV */
 
+UART_HandleTypeDef huart1;
+DMA_HandleTypeDef hdma_usart1_rx;
+uint8_t data[2];
+uint8_t receivedFlag=0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -66,6 +74,19 @@ void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+	if(huart->Instance==USART1){
+		receivedFlag=1;
+		HAL_UART_Transmit(&huart1, data, 2, 100);
+		//HAL_UART_Receive_IT(&huart1, data, 2);
+		HAL_UART_Receive_DMA (&huart1, data, 2);
+	}
+}
+
+int _write(int file, char *ptr, int len) {
+	HAL_UART_Transmit(&huart1, (uint8_t*)ptr, len, 50);
+	return len;
+}
 
 /* USER CODE END PFP */
 
@@ -102,29 +123,72 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_CRC_Init();
   MX_DMA2D_Init();
   MX_FMC_Init();
   MX_I2C3_Init();
-  MX_LTDC_Init();
   MX_SPI5_Init();
   MX_TIM1_Init();
   MX_USART1_UART_Init();
+  MX_LTDC_Init();
   /* USER CODE BEGIN 2 */
 
   BSP_LCD_Init();                                                     //Wlaczenie biblioteki
-  BSP_LCD_LayerDefaultInit(LCD_BACKGROUND_LAYER, LCD_FRAME_BUFFER);   //Wlaczenie pierwszej warstw
+  BSP_LCD_LayerDefaultInit(LCD_BACKGROUND_LAYER, LCD_FRAME_BUFFER);   //Wlaczenie pierwszej warstwy
   BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER);   //Wlaczenie drugiej warstwy
   BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER);                          //Wybranie warstwy aktywnej
   BSP_LCD_DisplayOn();                                                //Wlaczenie podswietlania
   BSP_LCD_Clear(LCD_COLOR_WHITE);                                     //Kolor Tla
 
 
+  //HAL_UART_Receive_IT(&huart1, data, 2);
+  HAL_UART_Receive_DMA (&huart1, data, 2);
+
+  printf("\r\n");
+  printf("AwnLCD\r\n\n");
+  printf("Wpisz cyfre i potwierdz naciskajac klawisz ENTER\r\n");
+  printf("Animacje:\r\n");
+  printf("1. Linia\r\n");
+  printf("2. Trojkat\r\n");
+  printf("3. Prostokat\r\n");
+  printf("4. Okrag\r\n");
+  printf("5. Tekst\r\n\n");
+  printf("Wybor: \r\n");
+
 
   while(1){
-	  //animationCircle(120, 160, 40, 80, 500);
-	  //drawingText(5, 60);
-	  animationText(5, 60);
+
+	  if(receivedFlag == 1){
+		  switch ((uint8_t)(data[0])) {
+		  case '1':
+			  printf("Wybrano 1 - animacja linii\r\n");
+			  printf("Poczekaj do konca animacji\r\n");
+			  break;
+		  case '2':
+			  printf("Wybrano 2 - animacja trojkata\r\n");
+			  printf("Poczekaj do konca animacji\r\n");
+			  break;
+		  case '3':
+			  printf("Wybrano 3 - animacja prostokata\r\n");
+			  printf("Poczekaj do konca animacji\r\n");
+			  break;
+		  case '4':
+			  printf("Wybrano 4 - animacja okregu\r\n");
+			  printf("Poczekaj do konca animacji\r\n");
+			  animationCircle(120, 160, 40, 80, 500);
+			  break;
+		  case '5':
+			  printf("Wybrano 5 - animacja tekstu\r\n");
+			  printf("Poczekaj do konca animacji\r\n");
+			  animationText(5, 60);
+			  break;
+		  default:
+			  printf("Nieprawidlowy wybor. Wprowadz ponownie: \r\n");
+			  break;
+		  }
+		  receivedFlag=0;
+	  }
   }
 
 
@@ -228,6 +292,16 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
+
+//  if (htim->Instance == TIM1) {
+//	  static uint16_t cnt = 0; // Licznik wyslanych wiadomosci
+//	  uint8_t data[50];// Tablica przechowujaca wysylana wiadomosc.
+//	  uint16_t size = 0; // Rozmiar wysylanej wiadomosci ++cnt; // Zwiekszenie licznika wyslanych wiadomosci.
+//
+//	  ++cnt; // Zwiekszenie licznika wyslanych wiadomosci.
+//	  size = sprintf(data, "Liczba wyslanych wiadomosci: %d.\n\r", cnt); // Stworzenie wiadomosci do wyslania oraz przypisanie ilosci wysylanych znakow do zmiennej size.
+//	  HAL_UART_Transmit_IT(&huart1, data, size);
+//  }
 
   /* USER CODE END Callback 1 */
 }

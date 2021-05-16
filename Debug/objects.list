@@ -1,5 +1,6 @@
 "Core/Src/Figures.o"
 "Core/Src/crc.o"
+"Core/Src/dma.o"
 "Core/Src/dma2d.o"
 "Core/Src/fmc.o"
 "Core/Src/freertos.o"

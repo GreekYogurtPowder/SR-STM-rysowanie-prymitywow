@@ -58,7 +58,8 @@
 /* External variables --------------------------------------------------------*/
 extern HCD_HandleTypeDef hhcd_USB_OTG_HS;
 extern DMA2D_HandleTypeDef hdma2d;
-extern LTDC_HandleTypeDef hltdc;
+extern DMA_HandleTypeDef hdma_usart1_rx;
+extern UART_HandleTypeDef huart1;
 extern TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN EV */
@@ -162,6 +163,20 @@ void DebugMon_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles USART1 global interrupt.
+  */
+void USART1_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART1_IRQn 0 */
+
+  /* USER CODE END USART1_IRQn 0 */
+  HAL_UART_IRQHandler(&huart1);
+  /* USER CODE BEGIN USART1_IRQn 1 */
+
+  /* USER CODE END USART1_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts.
   */
 void TIM6_DAC_IRQHandler(void)
@@ -176,6 +191,20 @@ void TIM6_DAC_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles DMA2 stream2 global interrupt.
+  */
+void DMA2_Stream2_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream2_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream2_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_usart1_rx);
+  /* USER CODE BEGIN DMA2_Stream2_IRQn 1 */
+
+  /* USER CODE END DMA2_Stream2_IRQn 1 */
+}
+
+/**
   * @brief This function handles USB On The Go HS global interrupt.
   */
 void OTG_HS_IRQHandler(void)
@@ -187,20 +216,6 @@ void OTG_HS_IRQHandler(void)
   /* USER CODE BEGIN OTG_HS_IRQn 1 */
 
   /* USER CODE END OTG_HS_IRQn 1 */
-}
-
-/**
-  * @brief This function handles LTDC global interrupt.
-  */
-void LTDC_IRQHandler(void)
-{
-  /* USER CODE BEGIN LTDC_IRQn 0 */
-
-  /* USER CODE END LTDC_IRQn 0 */
-  HAL_LTDC_IRQHandler(&hltdc);
-  /* USER CODE BEGIN LTDC_IRQn 1 */
-
-  /* USER CODE END LTDC_IRQn 1 */
 }
 
 /**

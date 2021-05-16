@@ -342,9 +342,9 @@ void drawingText (uint16_t x_pos, uint16_t y_pos, uint32_t color)
 
 /**
  * @brief draws animation of the circle
- * @param x_pos X position of the bottom right corner of the circle
- * @param y_pos Y position of the bottom right corner of the circle
- * @param rad	the radius of the circle
+ * @param x_pos X position of the animation
+ * @param y_pos Y position of the animation
+ * @param rad	the radius of the first circle
  * @param count	the number of circles
  * @param time	the time between drawings
  */
@@ -395,6 +395,8 @@ void animationCircle (uint16_t x_pos, uint16_t y_pos, uint16_t rad, uint16_t cou
 
 void animationText (uint16_t x_pos, uint16_t y_pos)
 {
+	uint16_t time = 200;
+
 	uint32_t color = 2164272953;
 	for(int i = 0; i<10; i++){
 		for(int j = 0; j<10; j++){
@@ -410,7 +412,5 @@ void animationText (uint16_t x_pos, uint16_t y_pos)
 		}
 		HAL_Delay(1000);
 	}
-
-	//BSP_LCD_Clear(LCD_COLOR_BLUE);
 }
 
