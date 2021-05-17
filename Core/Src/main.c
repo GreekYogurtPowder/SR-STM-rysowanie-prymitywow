@@ -166,26 +166,31 @@ int main(void)
 			  printf("Wybrano 1 - animacja linii\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
 			  animationLine(30, 30, 210, 300, 30, 1000);
+			  printf("Koniec animacji\r\n");
 			  break;
 		  case '2':
 			  printf("Wybrano 2 - animacja trojkata\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
 			  animationTriangle(95, 147, 50, 80, 500);
+			  printf("Koniec animacji\r\n");
 			  break;
 		  case '3':
 			  printf("Wybrano 3 - animacja prostokata\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
 			  animationRectangle(100, 130, 40, 60, 80, 500);
+			  printf("Koniec animacji\r\n");
 			  break;
 		  case '4':
 			  printf("Wybrano 4 - animacja okregu\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
 			  animationCircle(120, 160, 40, 80, 500);
+			  printf("Koniec animacji\r\n");
 			  break;
 		  case '5':
 			  printf("Wybrano 5 - animacja tekstu\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
 			  animationText(5, 60);
+			  printf("Koniec animacji\r\n");
 			  break;
 		  default:
 			  printf("Nieprawidlowy wybor. Wprowadz ponownie: \r\n");
