@@ -55,7 +55,7 @@ void drawingLine (uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) { //rysowa
 
 }
 
-void drawingRectangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y) { //rysowanie prostokata
+void drawingRectangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y, uint32_t kolor) { //rysowanie prostokata
 
     for (int wysokosc = 0; wysokosc < sizeY; wysokosc++)
     {
@@ -65,19 +65,19 @@ void drawingRectangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugos
             if (wysokosc == margines_y || wysokosc == margines_y + dlugosc_boku_y)
             {
                 if (szerokosc >= margines_x && szerokosc <= margines_x + dlugosc_boku_x)
-					  BSP_LCD_DrawPixel(szerokosc, wysokosc, (0));
+					  BSP_LCD_DrawPixel(szerokosc, wysokosc, kolor);
 
             } else if (szerokosc == margines_x || szerokosc == margines_x + dlugosc_boku_x)
             {
                 if (wysokosc >= margines_y && wysokosc <= margines_y + dlugosc_boku_y)
-					  BSP_LCD_DrawPixel(szerokosc, wysokosc, (0));
+					  BSP_LCD_DrawPixel(szerokosc, wysokosc, kolor);
             }
 
         }
     }
 }
 
-void drawingTriangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc_boku) { //rysowanie trojkata
+void drawingTriangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc_boku, uint32_t kolor) { //rysowanie trojkata
 
     int wskaznik_skosnej_1 = margines_x + dlugosc_boku/2;
     int wskaznik_skosnej_2 = margines_x + dlugosc_boku/2;
@@ -89,13 +89,13 @@ void drawingTriangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc
             if (wysokosc >= margines_y && wysokosc < margines_y + dlugosc_boku/2)
             {
                 if (szerokosc == wskaznik_skosnej_1 || szerokosc == wskaznik_skosnej_2) //linie skosne
-					  BSP_LCD_DrawPixel(szerokosc, wysokosc, (0));
+					  BSP_LCD_DrawPixel(szerokosc, wysokosc, kolor);
             }
 
             if (wysokosc == margines_y + dlugosc_boku/2) //linia pozioma
             {
                 if (szerokosc >= margines_x && szerokosc <= margines_x + dlugosc_boku)
-					  BSP_LCD_DrawPixel(szerokosc, wysokosc, (0));
+					  BSP_LCD_DrawPixel(szerokosc, wysokosc, kolor);
             }
 
         }
@@ -337,80 +337,6 @@ void drawingText (uint16_t x_pos, uint16_t y_pos, uint32_t color)
 		drawingLetterL(x_pos + i + 120, y_pos + i, color);
 		drawingLetterC(x_pos + i + 175, y_pos + i, color);
 		drawingLetterD(x_pos + i + 195, y_pos + i, color);
-	}
-}
-
-/**
- * @brief draws animation of the circle
- * @param x_pos X position of the animation
- * @param y_pos Y position of the animation
- * @param rad	the radius of the first circle
- * @param count	the number of circles
- * @param time	the time between drawings
- */
-
-void animationCircle (uint16_t x_pos, uint16_t y_pos, uint16_t rad, uint16_t count, uint16_t time)
-{
-
-	//drawing animations with pixels
-	for(int i = 0; i<count; i++){
-		//diagonally
-		drawingCircle(x_pos + i, y_pos + i, rad, 2164260608 + i*10);
-		drawingCircle(x_pos - i, y_pos - i, rad, 2164260608 + i*10);
-		drawingCircle(x_pos + i, y_pos - i, rad, 2164260608 + i*10);
-		drawingCircle(x_pos - i, y_pos + i, rad, 2164260608 + i*10);
-
-		//vertically and horizontally
-		drawingCircle(x_pos, y_pos + i, rad, 2164260608 + i*10);
-		drawingCircle(x_pos, y_pos - i, rad, 2164260608 + i*10);
-		drawingCircle(x_pos + i, y_pos, rad, 2164260608 + i*10);
-		drawingCircle(x_pos - i, y_pos, rad, 2164260608 + i*10);
-
-		HAL_Delay(time);
-	}
-
-	//clearing the screen by drawing with pixels
-	for(int i = 0; i<count; i++){
-		//diagonally
-		drawingCircle(x_pos + i, y_pos + i, rad, BSP_LCD_GetBackColor());
-		drawingCircle(x_pos - i, y_pos - i, rad, BSP_LCD_GetBackColor());
-		drawingCircle(x_pos + i, y_pos - i, rad, BSP_LCD_GetBackColor());
-		drawingCircle(x_pos - i, y_pos + i, rad, BSP_LCD_GetBackColor());
-
-		//vertically and horizontally
-		drawingCircle(x_pos, y_pos + i, rad, BSP_LCD_GetBackColor());
-		drawingCircle(x_pos, y_pos - i, rad, BSP_LCD_GetBackColor());
-		drawingCircle(x_pos + i, y_pos, rad, BSP_LCD_GetBackColor());
-		drawingCircle(x_pos - i, y_pos, rad, BSP_LCD_GetBackColor());
-
-		HAL_Delay(time);
-	}
-}
-
-/**
- * @brief draws animation of the text
- * @param x_pos X position of the bottom right corner of the animation
- * @param y_pos Y position of the bottom right corner of the animation
- */
-
-void animationText (uint16_t x_pos, uint16_t y_pos)
-{
-	uint16_t time = 200;
-
-	uint32_t color = 2164272953;
-	for(int i = 0; i<10; i++){
-		for(int j = 0; j<10; j++){
-			drawingText(5, 60 + j + 30*i, color + 12345*i);
-			HAL_Delay(500);
-		}
-		HAL_Delay(1000);
-	}
-	for(int i = 0; i<5; i++){
-		for(int j = 0; j<10; j++){
-			drawingText(5, 60 + 2*j + 30*i, BSP_LCD_GetBackColor());
-			HAL_Delay(500);
-		}
-		HAL_Delay(1000);
 	}
 }
 

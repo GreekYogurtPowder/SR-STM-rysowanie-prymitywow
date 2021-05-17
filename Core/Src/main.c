@@ -39,6 +39,7 @@
 #include "..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_sdram.h"
 #include "..\..\Drivers\BSP\Components\ili9341\ili9341.h"
 #include "Figures.h"
+#include "Animations.h"
 #include "stdio.h"
 #include "stdlib.h"
 
@@ -164,14 +165,17 @@ int main(void)
 		  case '1':
 			  printf("Wybrano 1 - animacja linii\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
+			  animationLine(30, 30, 210, 300, 30, 1000);
 			  break;
 		  case '2':
 			  printf("Wybrano 2 - animacja trojkata\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
+			  animationTriangle(95, 147, 50, 80, 500);
 			  break;
 		  case '3':
 			  printf("Wybrano 3 - animacja prostokata\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
+			  animationRectangle(100, 130, 40, 60, 80, 500);
 			  break;
 		  case '4':
 			  printf("Wybrano 4 - animacja okregu\r\n");
@@ -187,17 +191,9 @@ int main(void)
 			  printf("Nieprawidlowy wybor. Wprowadz ponownie: \r\n");
 			  break;
 		  }
-		  receivedFlag=0;
+		  receivedFlag = 0;
 	  }
   }
-
-
-  //drawingVLine(200, 200, 200);
-  //drawingLine(0, 0, 240, 320);
-  //drawingLine(1, 0, 241, 321);
-  //drawingLine(2, 0, 242, 322);
-  //drawingLine(3, 0, 243, 323);
-  //drawingLine(4, 0, 244, 324);
 
 
   /* USER CODE END 2 */
