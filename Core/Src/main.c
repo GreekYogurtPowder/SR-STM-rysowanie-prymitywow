@@ -135,17 +135,17 @@ int main(void)
   MX_LTDC_Init();
   /* USER CODE BEGIN 2 */
 
-  BSP_LCD_Init();                                                     //Wlaczenie biblioteki
-  BSP_LCD_LayerDefaultInit(LCD_BACKGROUND_LAYER, LCD_FRAME_BUFFER);   //Wlaczenie pierwszej warstwy
-  BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER);   //Wlaczenie drugiej warstwy
-  BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER);                          //Wybranie warstwy aktywnej
-  BSP_LCD_DisplayOn();                                                //Wlaczenie podswietlania
-  BSP_LCD_Clear(LCD_COLOR_WHITE);                                     //Kolor Tla
-
+  BSP_LCD_Init(); //Wlaczenie biblioteki
+  BSP_LCD_LayerDefaultInit(LCD_BACKGROUND_LAYER, LCD_FRAME_BUFFER); //Wlaczenie pierwszej warstwy
+  BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER); //Wlaczenie drugiej warstwy
+  BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER); //Wybranie warstwy aktywnej
+  BSP_LCD_DisplayOn(); //Wlaczenie podswietlania
+  BSP_LCD_Clear(LCD_COLOR_WHITE); //Kolor Tla
 
   //HAL_UART_Receive_IT(&huart1, data, 2);
   HAL_UART_Receive_DMA (&huart1, data, 2);
 
+  //interfejs uzytkownika - uruchomienie animacji
   printf("\r\n");
   printf("AwnLCD\r\n\n");
   printf("Wpisz cyfre i potwierdz naciskajac klawisz ENTER\r\n");
@@ -156,7 +156,6 @@ int main(void)
   printf("4. Okrag\r\n");
   printf("5. Tekst\r\n\n");
   printf("Wybor: \r\n");
-
 
   while(1){
 
@@ -189,7 +188,7 @@ int main(void)
 		  case '5':
 			  printf("Wybrano 5 - animacja tekstu\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
-			  animationText(5, 60);
+			  animationText(5, 60, 500);
 			  printf("Koniec animacji\r\n");
 			  break;
 		  default:
