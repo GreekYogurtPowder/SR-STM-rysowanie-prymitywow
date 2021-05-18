@@ -103,6 +103,136 @@ void animationRectangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlug
 }
 
 /**
+ * @brief draws animation of jumping rectangle
+ * @param dlugosc_boku_x length of the first side of a rectangle
+ * @param dlugosc_boku_y length of the second side of a rectangle
+ * @param czas the time between drawings
+ */
+
+void animationJumpingRectangle (uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y, uint16_t czas) {
+
+	uint16_t pozycja_x = 120 - dlugosc_boku_x/2;
+	uint16_t pozycja_y = 160 - dlugosc_boku_y/2;
+
+	for(int i = 0; i < (160 - dlugosc_boku_y/2); i++) { //Ruch w gore
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, 2164260608 + i*10);
+
+		HAL_Delay(czas);
+
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, BSP_LCD_GetBackColor());
+
+		pozycja_y--;
+	}
+
+	for(int i = 0; i < (120 - dlugosc_boku_x/2); i++) { //Ruch w dol i w prawo
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, 2164260608 + i*10);
+
+		HAL_Delay(czas);
+
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, BSP_LCD_GetBackColor());
+
+		pozycja_x++;
+		pozycja_y++;
+
+		if((i % 4) == 0) {
+			pozycja_y++;
+		}
+	}
+
+	for(int i = 0; i < (120 - dlugosc_boku_x/2); i++) { //Ruch w dol i w lewo
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, 2164260608 + i*10);
+
+		HAL_Delay(czas);
+
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, BSP_LCD_GetBackColor());
+
+		pozycja_x--;
+		pozycja_y++;
+
+		if((i % 4) == 0) {
+			pozycja_y++;
+		}
+	}
+
+	for(int i = 0; i < (120 - dlugosc_boku_x/2); i++) { //Ruch w gore i w lewo
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, 2164260608 + i*10);
+
+		HAL_Delay(czas);
+
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, BSP_LCD_GetBackColor());
+
+		pozycja_x--;
+		pozycja_y--;
+
+		if((i % 4) == 0) {
+			pozycja_y--;
+		}
+	}
+
+	for(int i = 0; i < (120 - dlugosc_boku_x/2); i++) { //Ruch w gore i w prawo
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, 2164260608 + i*10);
+
+		HAL_Delay(czas);
+
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, BSP_LCD_GetBackColor());
+
+		pozycja_x++;
+		pozycja_y--;
+
+		if((i % 4) == 0) {
+			pozycja_y--;
+		}
+	}
+
+	for(int i = 0; i < (160 - dlugosc_boku_y/2); i++) { //Ruch w dol
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, 2164260608 + i*10);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, 2164260608 + i*10);
+
+		HAL_Delay(czas);
+
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, BSP_LCD_GetBackColor());
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, BSP_LCD_GetBackColor());
+
+		pozycja_y++;
+	}
+
+}
+
+/**
  * @brief draws animation of the triangle
  * @param margines_x starting X position
  * @param margines_y starting Y position
