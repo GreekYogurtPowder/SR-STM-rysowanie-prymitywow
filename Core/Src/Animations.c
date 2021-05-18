@@ -5,7 +5,7 @@
  * @param poczatek_x starting X position
  * @param poczatek_y starting Y position
  * @param koniec_x end X position
- * @param koniec_y Y end Y position
+ * @param koniec_y end Y position
  * @param odstep number of pixels beetwen next lines
  * @param czas the time between drawings
  */

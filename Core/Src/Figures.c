@@ -1,7 +1,14 @@
 #include "Figures.h"
 
-//pogrubic kreski i ma byc na bialym tle
-void drawingHLine (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc){ //rysowanie poziomej linii
+/**
+ * @brief draws horizontal line
+ * @param margines_x starting X position
+ * @param margines_y starting Y position
+ * @param dlugosc length of the line
+ * @param kolor	the color of the line
+ */
+
+void drawingHLine (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc, uint32_t kolor){ //rysowanie poziomej linii
 
 	  for (int wysokosc = 0; wysokosc < sizeY; wysokosc++)
 	  {
@@ -12,14 +19,22 @@ void drawingHLine (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc){ 
 	          {
 				  if (szerokosc >= margines_x && szerokosc <= margines_x + dlugosc)
 	              {
-					  BSP_LCD_DrawPixel(szerokosc, wysokosc, (0)); //taki ma byc kod
+					  BSP_LCD_DrawPixel(szerokosc, wysokosc, kolor);
 	              }
 	          }
 	      }
 	  }
 }
 
-void drawingVLine (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc){ //rysowanie pionowej linii
+/**
+ * @brief draws vertical line
+ * @param margines_x starting X position
+ * @param margines_y starting Y position
+ * @param dlugosc length of the line
+ * @param kolor	the color of the line
+ */
+
+void drawingVLine (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc, uint32_t kolor){ //rysowanie pionowej linii
 
 	 for (int wysokosc = 0; wysokosc < sizeY; wysokosc++)
 		  {
@@ -30,20 +45,29 @@ void drawingVLine (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc){ 
 		          {
 		        	  if (wysokosc >= margines_y && wysokosc <= margines_y + dlugosc)
 		              {
-						  BSP_LCD_DrawPixel(szerokosc, wysokosc, (0));
+						  BSP_LCD_DrawPixel(szerokosc, wysokosc, kolor);
 		              }
 		          }
 		      }
 		  }
 }
 
-void drawingLine (uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) { //rysowanie dowolnej linii
+/**
+ * @brief draws line
+ * @param x1 starting X position
+ * @param y1 starting Y position
+ * @param x2 end X position
+ * @param y2 end Y position
+ * @param kolor	the color of the rectangle
+ */
+
+void drawingLine (uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint32_t kolor) { //rysowanie dowolnej linii
 
     int m_new = 2 * (x2 - x1);
     int slope_error_new = m_new - (y2 - y1);
 
     for(int y = y1, x = x1; y <= y2; y++) {
-    	BSP_LCD_DrawPixel(x, y, (0));
+    	BSP_LCD_DrawPixel(x, y, kolor);
 
         slope_error_new += m_new;
 
@@ -54,6 +78,15 @@ void drawingLine (uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) { //rysowa
     }
 
 }
+
+/**
+ * @brief draws rectangle
+ * @param margines_x starting X position
+ * @param margines_y starting Y position
+ * @param dlugosc_boku_x length of the first side of a rectangle
+ * @param dlugosc_boku_y length of the second side of a rectangle
+ * @param kolor	the color of the rectangle
+ */
 
 void drawingRectangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y, uint32_t kolor) { //rysowanie prostokata
 
@@ -76,6 +109,14 @@ void drawingRectangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugos
         }
     }
 }
+
+/**
+ * @brief draws triangle
+ * @param margines_x starting X position
+ * @param margines_y starting Y position
+ * @param dlugosc_boku_x length of the side of a triangle
+ * @param kolor	the color of the triangle
+ */
 
 void drawingTriangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc_boku, uint32_t kolor) { //rysowanie trojkata
 

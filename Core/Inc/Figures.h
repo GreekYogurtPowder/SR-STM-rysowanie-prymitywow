@@ -14,9 +14,9 @@ static int sizeY = 320;
  * Definitions of drawing functions:
  */
 
-void drawingHLine (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc); //rysowanie poziomej linii
-void drawingVLine (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc); //rysowanie pionowej linii
-void drawingLine (uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2); //rysowanie dowolnej linii
+void drawingHLine (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc, uint32_t kolor); //rysowanie poziomej linii
+void drawingVLine (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc, uint32_t kolor); //rysowanie pionowej linii
+void drawingLine (uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint32_t kolor); //rysowanie dowolnej linii
 void drawingRectangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y, uint32_t kolor); //rysowanie prostokata
 void drawingTriangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc_boku, uint32_t kolor); //rysowanie trojkata
 void DrawLine ( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint32_t color);
