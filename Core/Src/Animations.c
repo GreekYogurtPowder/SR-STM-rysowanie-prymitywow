@@ -350,3 +350,98 @@ void animationText (uint16_t x_pos, uint16_t y_pos, uint16_t time)
 		HAL_Delay(time);
 	}
 }
+
+/**
+ * @brief draws animation of the rotating square
+ * @param x_pos X position of the center of rotation
+ * @param y_pos Y position of the center of rotation
+ */
+
+void animationRotation (uint16_t x_pos, uint16_t y_pos)
+{
+
+	double angle = 30 * PI_NUM / 180;
+
+	double x_center = x_pos;
+	double y_center = y_pos;
+
+	double x_from = 120;
+	double y_from = 160;
+	double x_to = 120;
+	double y_to = y_from + 50;
+	double x_precedente;
+
+	double x_from1 = 120;//x_to-bok
+	double y_from1 = 210; //y_to
+	double x_to1 = 70;
+	double y_to1 = 210;
+	double x_precedente1;
+
+	double x_from2 = 70;//x_to-bok
+	double y_from2 = 210; //y_to
+	double x_to2 = 70;
+	double y_to2 = 160;
+	double x_precedente2;
+
+	double x_from3 = 70;//x_to-bok
+	double y_from3 = 160; //y_to
+	double x_to3 = 120;
+	double y_to3 = 160;
+	double x_precedente3;
+
+
+	for (int j = 0; j < 15; j++) {
+
+		for (int i = 0; i < 5; i++)
+			DrawLine(x_from + i, y_from + i, x_to + i, y_to + i, 0x80FFFF00);
+		x_precedente = x_from;
+		x_from = ((x_from - x_center) * cos(angle) - (y_from - y_center) * sin(angle) + x_center);
+		y_from = ((x_precedente - x_center) * sin(angle) + (y_from - y_center) * cos(angle) + y_center);
+
+		x_precedente = x_to;
+		x_to = ((x_to - x_center) * cos(angle) - (y_to - y_center) * sin(angle) + x_center);
+		y_to = ((x_precedente - x_center) * sin(angle) + (y_to - y_center) * cos(angle) + y_center);
+
+		for (int i = 0; i < 5; i++)
+			DrawLine(x_from1 + i, y_from1 + i, x_to1 + i, y_to1 + i, 0x80FFFF00);
+
+		x_precedente1 = x_from1;
+		x_from1 = ((x_from1 - x_center) * cos(angle) - (y_from1 - y_center) * sin(angle) + x_center);
+		y_from1 = ((x_precedente1 - x_center) * sin(angle) + (y_from1 - y_center) * cos(angle) + y_center);
+
+		x_precedente1 = x_to1;
+		x_to1 = ((x_to1 - x_center) * cos(angle) - (y_to1 - y_center) * sin(angle) + x_center);
+		y_to1 = ((x_precedente1 - x_center) * sin(angle) + (y_to1 - y_center) * cos(angle) + y_center);
+
+
+		for (int i = 0; i < 5; i++)
+			DrawLine(x_from2 + i, y_from2 + i, x_to2 + i, y_to2 + i, 0x80FFFF00);
+
+		x_precedente2 = x_from2;
+		x_from2 = ((x_from2 - x_center) * cos(angle) - (y_from2 - y_center) * sin(angle) + x_center);
+		y_from2 = ((x_precedente2 - x_center) * sin(angle) + (y_from2 - y_center) * cos(angle) + y_center);
+
+		x_precedente2 = x_to2;
+		x_to2 = ((x_to2 - x_center) * cos(angle) - (y_to2 - y_center) * sin(angle) + x_center);
+		y_to2 = ((x_precedente2 - x_center) * sin(angle) + (y_to2 - y_center) * cos(angle) + y_center);
+
+
+		for (int i = 0; i < 5; i++)
+			DrawLine(x_from3 + i, y_from3 + i, x_to3 + i, y_to3 + i, 0x80FFFF00);
+
+		x_precedente3 = x_from3;
+		x_from3 = ((x_from3 - x_center) * cos(angle) - (y_from3 - y_center) * sin(angle) + x_center);
+		y_from3 = ((x_precedente3 - x_center) * sin(angle) + (y_from3 - y_center) * cos(angle) + y_center);
+
+		x_precedente3 = x_to3;
+		x_to3 = ((x_to3 - x_center) * cos(angle) - (y_to3 - y_center) * sin(angle) + x_center);
+		y_to3 = ((x_precedente3 - x_center) * sin(angle) + (y_to3 - y_center) * cos(angle) + y_center);
+
+
+
+		HAL_Delay(1500);
+		BSP_LCD_Clear(LCD_COLOR_BLUE);
+	}
+}
+
+

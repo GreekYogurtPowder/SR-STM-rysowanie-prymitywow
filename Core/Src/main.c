@@ -140,7 +140,7 @@ int main(void)
   BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER); //Wlaczenie drugiej warstwy
   BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER); //Wybranie warstwy aktywnej
   BSP_LCD_DisplayOn(); //Wlaczenie podswietlania
-  BSP_LCD_Clear(LCD_COLOR_WHITE); //Kolor Tla
+  BSP_LCD_Clear(LCD_COLOR_BLUE); //Kolor Tla
 
   //HAL_UART_Receive_IT(&huart1, data, 2);
   HAL_UART_Receive_DMA (&huart1, data, 2);
@@ -155,7 +155,8 @@ int main(void)
   printf("3. Prostokat\r\n");
   printf("4. Odbijajacy sie prostokat\r\n");
   printf("5. Okrag\r\n");
-  printf("6. Tekst\r\n\n");
+  printf("6. Tekst\r\n");
+  printf("7. Rotacja kwadratu\r\n\n");
   printf("Wybor: \r\n");
 
   while(1){
@@ -196,6 +197,12 @@ int main(void)
 			  printf("Wybrano 6 - animacja tekstu\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
 			  animationText(5, 60, 500);
+			  printf("Koniec animacji\r\n");
+			  break;
+			case '7':
+			  printf("Wybrano 7 - animacja rotacji kwadratu\r\n");
+			  printf("Poczekaj do konca animacji\r\n");
+			  animationRotation(95, 185); //(95, 185) / (120, 160)
 			  printf("Koniec animacji\r\n");
 			  break;
 		  default:
@@ -300,15 +307,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   }
   /* USER CODE BEGIN Callback 1 */
 
-//  if (htim->Instance == TIM1) {
-//	  static uint16_t cnt = 0; // Licznik wyslanych wiadomosci
-//	  uint8_t data[50];// Tablica przechowujaca wysylana wiadomosc.
-//	  uint16_t size = 0; // Rozmiar wysylanej wiadomosci ++cnt; // Zwiekszenie licznika wyslanych wiadomosci.
-//
-//	  ++cnt; // Zwiekszenie licznika wyslanych wiadomosci.
-//	  size = sprintf(data, "Liczba wyslanych wiadomosci: %d.\n\r", cnt); // Stworzenie wiadomosci do wyslania oraz przypisanie ilosci wysylanych znakow do zmiennej size.
-//	  HAL_UART_Transmit_IT(&huart1, data, size);
-//  }
 
   /* USER CODE END Callback 1 */
 }

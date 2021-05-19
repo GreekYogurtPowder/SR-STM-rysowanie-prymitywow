@@ -6,6 +6,9 @@
 #include "..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_sdram.h"
 #include "..\..\Drivers\BSP\Components\ili9341\ili9341.h"
 #include "Figures.h"
+#include "math.h"
+
+#define PI_NUM 3.14159265
 
 /**
  * Definitions of animated functions:
@@ -17,5 +20,6 @@ void animationJumpingRectangle (uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y
 void animationTriangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc_boku, uint16_t ilosc, uint16_t czas);
 void animationCircle (uint16_t x_pos, uint16_t y_pos, uint16_t rad, uint16_t count, uint16_t time);
 void animationText (uint16_t x_pos, uint16_t y_pos, uint16_t time);
+void animationRotation (uint16_t x_pos, uint16_t y_pos);
 
 #endif /* INC_ANIMATIONS_H_ */

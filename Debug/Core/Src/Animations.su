@@ -1,0 +1,7 @@
+Animations.c:13:6:animationLine	56	static
+Animations.c:67:6:animationRectangle	40	static
+Animations.c:112:6:animationJumpingRectangle	72	static
+Animations.c:244:6:animationTriangle	32	static
+Animations.c:291:6:animationCircle	32	static
+Animations.c:335:6:animationText	48	static
+Animations.c:360:6:animationRotation	256	static
