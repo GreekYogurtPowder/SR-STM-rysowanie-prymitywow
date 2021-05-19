@@ -355,42 +355,77 @@ void animationText (uint16_t x_pos, uint16_t y_pos, uint16_t time)
  * @brief draws animation of the rotating square
  * @param x_pos X position of the center of rotation
  * @param y_pos Y position of the center of rotation
+ * @param angle the angle of one rotation
  */
 
-void animationRotation (uint16_t x_pos, uint16_t y_pos)
+void animationRotation (uint16_t x_pos, uint16_t y_pos, double angle)
 {
+	double length = 70;
+	double right_top_x = 120;
+	double right_top_y = 160;
 
-	double angle = 30 * PI_NUM / 180;
+
+	angle = angle * PI_NUM / 180;
+
 
 	double x_center = x_pos;
 	double y_center = y_pos;
 
-	double x_from = 120;
-	double y_from = 160;
-	double x_to = 120;
-	double y_to = y_from + 50;
+	double x_from = right_top_x;
+	double y_from = right_top_y;
+	double x_to = right_top_x;
+	double y_to = y_from + length;
 	double x_precedente;
 
-	double x_from1 = 120;//x_to-bok
-	double y_from1 = 210; //y_to
-	double x_to1 = 70;
-	double y_to1 = 210;
+	double x_from1 = right_top_x;//x_to-bok
+	double y_from1 = y_to; //y_to
+	double x_to1 = x_from1 - length;
+	double y_to1 = y_to;
 	double x_precedente1;
 
-	double x_from2 = 70;//x_to-bok
-	double y_from2 = 210; //y_to
-	double x_to2 = 70;
-	double y_to2 = 160;
+	double x_from2 = x_to1;//x_to-bok
+	double y_from2 = y_to; //y_to
+	double x_to2 = x_to1;
+	double y_to2 = right_top_y;
 	double x_precedente2;
 
-	double x_from3 = 70;//x_to-bok
-	double y_from3 = 160; //y_to
-	double x_to3 = 120;
-	double y_to3 = 160;
+	double x_from3 = x_to1;//x_to-bok
+	double y_from3 = right_top_y; //y_to
+	double x_to3 = right_top_x;
+	double y_to3 = right_top_y;
 	double x_precedente3;
 
 
-	for (int j = 0; j < 15; j++) {
+
+//	double x_center = x_pos;
+//	double y_center = y_pos;
+//
+//	double x_from = 120;
+//	double y_from = 160;
+//	double x_to = 120;
+//	double y_to = 210;
+//	double x_precedente;
+//
+//	double x_from1 = 120;//x_to-bok
+//	double y_from1 = 210; //y_to
+//	double x_to1 = 70;
+//	double y_to1 = 210;
+//	double x_precedente1;
+//
+//	double x_from2 = 70;//x_to-bok
+//	double y_from2 = 210; //y_to
+//	double x_to2 = 70;
+//	double y_to2 = 160;
+//	double x_precedente2;
+//
+//	double x_from3 = 70;//x_to-bok
+//	double y_from3 = 160; //y_to
+//	double x_to3 = 120;
+//	double y_to3 = 160;
+//	double x_precedente3;
+
+
+	for (int j = 0; j < 20; j++) {
 
 		for (int i = 0; i < 5; i++)
 			DrawLine(x_from + i, y_from + i, x_to + i, y_to + i, 0x80FFFF00);

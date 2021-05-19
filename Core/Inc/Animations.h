@@ -20,6 +20,6 @@ void animationJumpingRectangle (uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y
 void animationTriangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugosc_boku, uint16_t ilosc, uint16_t czas);
 void animationCircle (uint16_t x_pos, uint16_t y_pos, uint16_t rad, uint16_t count, uint16_t time);
 void animationText (uint16_t x_pos, uint16_t y_pos, uint16_t time);
-void animationRotation (uint16_t x_pos, uint16_t y_pos);
+void animationRotation (uint16_t x_pos, uint16_t y_pos, double angle);
 
 #endif /* INC_ANIMATIONS_H_ */

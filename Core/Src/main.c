@@ -202,7 +202,7 @@ int main(void)
 			case '7':
 			  printf("Wybrano 7 - animacja rotacji kwadratu\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
-			  animationRotation(95, 185); //(95, 185) / (120, 160)
+			  animationRotation(120, 160, 25); //(95, 185) / (120, 160)
 			  printf("Koniec animacji\r\n");
 			  break;
 		  default:

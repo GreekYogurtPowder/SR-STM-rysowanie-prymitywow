@@ -4,4 +4,4 @@ Animations.c:112:6:animationJumpingRectangle	72	static
 Animations.c:244:6:animationTriangle	32	static
 Animations.c:291:6:animationCircle	32	static
 Animations.c:335:6:animationText	48	static
-Animations.c:360:6:animationRotation	256	static
+Animations.c:361:6:animationRotation	280	static
