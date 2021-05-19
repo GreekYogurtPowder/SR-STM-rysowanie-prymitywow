@@ -76,8 +76,8 @@ lcd_rysowanie_prymitywow.bin \
 all: lcd_rysowanie_prymitywow.elf secondary-outputs
 
 # Tool invocations
-lcd_rysowanie_prymitywow.elf: $(OBJS) $(USER_OBJS) C:\Users\kubaw\OneDrive\Dokumenty\GitHub\SR-STM-rysowanie-prymitywow\STM32F429ZITX_FLASH.ld
-	arm-none-eabi-gcc -o "lcd_rysowanie_prymitywow.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\kubaw\OneDrive\Dokumenty\GitHub\SR-STM-rysowanie-prymitywow\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lcd_rysowanie_prymitywow.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+lcd_rysowanie_prymitywow.elf: $(OBJS) $(USER_OBJS) K:\PWR\SR\projekt\worksp\lcd_rysowanie_prymitywow\STM32F429ZITX_FLASH.ld
+	arm-none-eabi-gcc -o "lcd_rysowanie_prymitywow.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"K:\PWR\SR\projekt\worksp\lcd_rysowanie_prymitywow\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lcd_rysowanie_prymitywow.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

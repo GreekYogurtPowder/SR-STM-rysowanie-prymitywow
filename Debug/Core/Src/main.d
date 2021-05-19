@@ -63,9 +63,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_lcd.h \
  ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery.h \
  ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_sdram.h \
- ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\../../../Utilities/Fonts/fonts.h \
+ k:\pwr\sr\projekt\worksp\lcd_rysowanie_prymitywow\utilities\fonts\fonts.h \
  ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\../Components/ili9341/ili9341.h \
- ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\../Components/ili9341/../Common/lcd.h \
+ k:\pwr\sr\projekt\worksp\lcd_rysowanie_prymitywow\drivers\bsp\components\common\lcd.h \
  ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_sdram.h \
  ../Core/Src/..\..\Drivers\BSP\Components\ili9341\ili9341.h \
  ../Core/Inc/Figures.h \
@@ -221,11 +221,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_sdram.h:
 
-../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\../../../Utilities/Fonts/fonts.h:
+k:\pwr\sr\projekt\worksp\lcd_rysowanie_prymitywow\utilities\fonts\fonts.h:
 
 ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\../Components/ili9341/ili9341.h:
 
-../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\../Components/ili9341/../Common/lcd.h:
+k:\pwr\sr\projekt\worksp\lcd_rysowanie_prymitywow\drivers\bsp\components\common\lcd.h:
 
 ../Core/Src/..\..\Drivers\BSP\STM32F429I-Discovery\stm32f429i_discovery_sdram.h:
 

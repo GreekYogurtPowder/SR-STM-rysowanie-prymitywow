@@ -153,9 +153,9 @@ int main(void)
   printf("1. Linia\r\n");
   printf("2. Trojkat\r\n");
   printf("3. Prostokat\r\n");
-  printf("4. Odbijajacy sie prostokat\r\n");
-  printf("5. Okrag\r\n");
-  printf("6. Tekst\r\n");
+  printf("4. Okrag\r\n");
+  printf("5. Tekst\r\n");
+  printf("6. Odbijajacy sie kwadrat\r\n");
   printf("7. Rotacja kwadratu\r\n\n");
   printf("Wybor: \r\n");
 
@@ -182,21 +182,21 @@ int main(void)
 			  printf("Koniec animacji\r\n");
 			  break;
 		  case '4':
-			  printf("Wybrano 4 - animacja odbijającego sie prostokata\r\n");
-			  printf("Poczekaj do konca animacji\r\n");
-			  animationJumpingRectangle(80, 80, 30);
-			  printf("Koniec animacji\r\n");
-			  break;
-		  case '5':
-			  printf("Wybrano 5 - animacja okregu\r\n");
+			  printf("Wybrano 4 - animacja okregu\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
 			  animationCircle(120, 160, 40, 80, 500);
 			  printf("Koniec animacji\r\n");
 			  break;
-		  case '6':
-			  printf("Wybrano 6 - animacja tekstu\r\n");
+		  case '5':
+			  printf("Wybrano 5 - animacja tekstu\r\n");
 			  printf("Poczekaj do konca animacji\r\n");
 			  animationText(5, 60, 500);
+			  printf("Koniec animacji\r\n");
+			  break;
+		  case '6':
+			  printf("Wybrano 6 - animacja odbijajacego sie kwadratu\r\n");
+			  printf("Poczekaj do konca animacji\r\n");
+			  animationJumpingRectangle(80, 80, 30);
 			  printf("Koniec animacji\r\n");
 			  break;
 			case '7':
