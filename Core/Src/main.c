@@ -140,7 +140,8 @@ int main(void)
   BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER); //Wlaczenie drugiej warstwy
   BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER); //Wybranie warstwy aktywnej
   BSP_LCD_DisplayOn(); //Wlaczenie podswietlania
-  BSP_LCD_Clear(LCD_COLOR_BLUE); //Kolor Tla
+  BSP_LCD_Clear(LCD_COLOR_WHITE); //Kolor Tla
+
 
   //HAL_UART_Receive_IT(&huart1, data, 2);
   HAL_UART_Receive_DMA (&huart1, data, 2);

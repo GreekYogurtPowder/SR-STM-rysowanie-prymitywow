@@ -52,6 +52,8 @@ void animationLine (uint16_t poczatek_x, uint16_t poczatek_y, uint16_t koniec_x,
 		HAL_Delay(czas);
 	}
 
+	BSP_LCD_Clear(LCD_COLOR_WHITE);
+
 }
 
 /**
@@ -100,6 +102,8 @@ void animationRectangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlug
 		HAL_Delay(czas);
 	}
 
+	BSP_LCD_Clear(LCD_COLOR_WHITE);
+
 }
 
 /**
@@ -115,33 +119,33 @@ void animationJumpingRectangle (uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y
 	uint16_t pozycja_y = 160 - dlugosc_boku_y/2;
 
 	for(int i = 0; i < (160 - dlugosc_boku_y/2); i++) { //Ruch w gore
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLACK);
+
+		HAL_Delay(czas);
+
 		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_WHITE);
-
-		HAL_Delay(czas);
-
-		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLUE);
 
 		pozycja_y--;
 	}
 
 	for(int i = 0; i < (120 - dlugosc_boku_x/2); i++) { //Ruch w dol i w prawo
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLACK);
+
+		HAL_Delay(czas);
+
 		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_WHITE);
-
-		HAL_Delay(czas);
-
-		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLUE);
 
 		pozycja_x++;
 		pozycja_y++;
@@ -152,17 +156,17 @@ void animationJumpingRectangle (uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y
 	}
 
 	for(int i = 0; i < (120 - dlugosc_boku_x/2); i++) { //Ruch w dol i w lewo
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLACK);
+
+		HAL_Delay(czas);
+
 		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_WHITE);
-
-		HAL_Delay(czas);
-
-		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLUE);
 
 		pozycja_x--;
 		pozycja_y++;
@@ -173,17 +177,17 @@ void animationJumpingRectangle (uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y
 	}
 
 	for(int i = 0; i < (120 - dlugosc_boku_x/2); i++) { //Ruch w gore i w lewo
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLACK);
+
+		HAL_Delay(czas);
+
 		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_WHITE);
-
-		HAL_Delay(czas);
-
-		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLUE);
 
 		pozycja_x--;
 		pozycja_y--;
@@ -194,17 +198,17 @@ void animationJumpingRectangle (uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y
 	}
 
 	for(int i = 0; i < (120 - dlugosc_boku_x/2); i++) { //Ruch w gore i w prawo
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLACK);
+
+		HAL_Delay(czas);
+
 		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_WHITE);
-
-		HAL_Delay(czas);
-
-		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLUE);
 
 		pozycja_x++;
 		pozycja_y--;
@@ -215,20 +219,22 @@ void animationJumpingRectangle (uint16_t dlugosc_boku_x, uint16_t dlugosc_boku_y
 	}
 
 	for(int i = 0; i < (160 - dlugosc_boku_y/2); i++) { //Ruch w dol
+		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLACK);
+		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLACK);
+
+		HAL_Delay(czas);
+
 		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_WHITE);
 		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_WHITE);
 
-		HAL_Delay(czas);
-
-		drawingRectangle(pozycja_x, pozycja_y, dlugosc_boku_x, dlugosc_boku_y, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 1, pozycja_y - 1, dlugosc_boku_x - 2, dlugosc_boku_y - 2, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 2, pozycja_y - 2, dlugosc_boku_x - 4, dlugosc_boku_y - 4, LCD_COLOR_BLUE);
-		drawingRectangle(pozycja_x - 3, pozycja_y + 3, dlugosc_boku_x - 6, dlugosc_boku_y - 6, LCD_COLOR_BLUE);
-
 		pozycja_y++;
 	}
+
+	BSP_LCD_Clear(LCD_COLOR_WHITE);
 
 }
 
@@ -277,6 +283,8 @@ void animationTriangle (uint16_t margines_x, uint16_t margines_y, uint16_t dlugo
 		HAL_Delay(czas);
 	}
 
+	BSP_LCD_Clear(LCD_COLOR_WHITE);
+
 }
 
 /**
@@ -324,6 +332,7 @@ void animationCircle (uint16_t x_pos, uint16_t y_pos, uint16_t rad, uint16_t cou
 
 		HAL_Delay(time);
 	}
+	BSP_LCD_Clear(LCD_COLOR_WHITE);
 }
 
 /**
@@ -349,6 +358,8 @@ void animationText (uint16_t x_pos, uint16_t y_pos, uint16_t time)
 		}
 		HAL_Delay(time);
 	}
+
+	BSP_LCD_Clear(LCD_COLOR_WHITE);
 }
 
 /**
@@ -475,7 +486,7 @@ void animationRotation (uint16_t x_pos, uint16_t y_pos, double angle)
 
 
 		HAL_Delay(1500);
-		BSP_LCD_Clear(LCD_COLOR_BLUE);
+		BSP_LCD_Clear(LCD_COLOR_WHITE);
 	}
 }
 
